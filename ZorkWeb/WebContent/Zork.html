@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+function Zork(){
+
+//room=displayMoves(1,1);
+room = document.getElementById("command").value
+document.getElementById("command").value=""; //clear room input box
+	if (room==1){
+		document.getElementById("message").innerHTML = "You are standing in the foyer of an old house. You see a dead scorption. {You can (2) exit to the north}"
+		go = document.getElementById("command").value;
+//		displayMoves(1,go);
+		
+/*		if (go==1) room=2;
+*/		moves = document.getElementById("moves").text
+		document.getElementById("moves").value = moves + "foyer"
+	}	
+	if (room==2){
+		document.getElementById("message").innerHTML = "You are standing in the front room of an old house. You see a piano. {You can (1) exit to the south, (3) exit to the west, (4) exit to the east}"
+		go = document.getElementById("command").value;
+//		displayMoves(2,go);
+		
+/*		if (go==1) room=1;
+		
+		else if (go == 2) room=3;
+		
+		else if (go == 3) room=4;
+*/		moves = document.getElementById("moves").text
+		document.getElementById("moves").value = moves + "front room"
+	}
+	if (room==3){
+		document.getElementById("message").innerHTML = "You are standing in a library. You see spiders. {You can (2) exit to the east, (5) exit to the north}"
+		go = document.getElementById("command").value;
+//		displayMoves(3,go);
+		
+/*		if (go == 1) room=2;
+		
+		else if (go == 2) room=5;
+*/		moves = document.getElementById("moves").text
+		document.getElementById("moves").value = moves + "library"
+	}
+	if (room==4){
+		document.getElementById("message").innerHTML = "You are standing in a kitchen. You see bats. {You can (2) exit to the west, (7) exit to the north}"
+		go = document.getElementById("command").value;
+//		displayMoves(4,go);
+		
+/*		if (go == 1) room=2;
+		
+		else if (go == 2) room=7;
+*/		moves = document.getElementById("moves").text
+		document.getElementById("moves").value = moves + "kitchen"
+	}
+	if (room==5){
+		document.getElementById("message").innerHTML = "You are standing in a dining room. You see dust and an empty box. {You can (3) exit to the south}"
+		go = document.getElementById("command").value;
+//		displayMoves(5,go);
+		
+//		if (go == 1) room=3;
+		moves = document.getElementById("moves").text
+		document.getElementById("moves").value = moves + "dining room"
+	}
+	if (room==6){
+		document.getElementById("message").innerHTML = "You are standing in a vault. You see 3 walking skeletons.{You can (7) exit to the east}"
+		go = document.getElementById("command").value;
+//		displayMoves(6,go);
+		
+//		if (go == 1) room=7;
+		moves = document.getElementById("moves").text
+		document.getElementById("moves").value = moves + "vault"
+	}
+	if (room==7){
+		document.getElementById("message").innerHTML = "You are standing in a parlor. You see a treasure chest. {You can (6) exit to the west, (4) exit to the south}"
+		go = document.getElementById("command").value;
+//		displayMoves(7,go);
+		
+/*		if (go == 1) room=6;
+		
+		else if (go == 2) room=4;
+*/		moves = document.getElementById("moves").text
+		document.getElementById("moves").value = moves + "parlor"
+	}
+}
+
+function displayMoves(room, go){
+	if (room==1){
+		if (go==1){
+			return 2;
+		}
+	}
+	if (room==2)
+		{
+		if (go==1){
+			return 1;
+		}
+		else if (go==2){
+			return 3;
+		}
+		else if (go==3){
+			return 4;
+		}
+		}
+	if (room==3){
+		if (go==1){
+			return 2;
+		}
+		else if (go==2){
+			return 5;
+		}
+	}
+	if (room==4){
+		if (go==1){
+			return 2;
+		}
+		else if (go==2){
+			return 7;
+		}
+	}
+	if (room==5){
+		if (go==1){
+			return 3;
+		}
+	}
+	if (room==6){
+		if (go==1){
+			return 7;
+		}
+	}
+	if (room==7){
+		if (go==1){
+			return 6;
+		}
+		else if (go==6){
+			return 4;
+		}
+	}
+	
+}
+
+
+/*
+document.getElementById("message").innerHTML = "<b>You said: " + v + "</b>"
+document.getElementById("parlor").style.backgroundColor = "blue";
+moves = document.getElementById("moves").text
+document.getElementById("moves").value + "\\\rYour next move"
+}
+*/
+
+</script>
+</head>
+<body>
+<h1>welcome to zork</h1>
+<table border="1" style="width:400px">
+<tr><td border="1" id="parlor">&nbsp;</td><td border="1" id="vault">&nbsp;</td><td border="1" id="dining room">&nbsp;</td></tr>
+<tr><td border="1" id="library">&nbsp;</td><td border="1" id="front room">&nbsp;</td><td border="1" id="kitchen">&nbsp;</td></tr>
+<tr><td border="1" id="">&nbsp;</td><td border="1" id="foyer">&nbsp;</td><td border="1" id="">&nbsp;</td></tr>
+</table>
+
+<div id="message">
+
+</div>
+
+<form action="javascript:Zork();">
+<input type="text" name="command" id="command"></input>
+<input type="submit" id="submit" name="submit">
+<img src="http://images.clipartpanda.com/death-clipart-tombstone-clipart.gif" alt="Game over. Dude." height="50"></img>
+</form>
+
+<h2>your moves:</h2>
+<textarea id="moves" rows="6" cols="50">
+</textarea>
+</body>
+</html>
